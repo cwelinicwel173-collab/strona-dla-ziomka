@@ -3,561 +3,103 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BARTMAL | Remonty i Wykończenia</title>
-  <meta name="description" content="BARTMAL — remonty i wykończenia. Kontakt: telefon i Facebook." />
-  <meta name="theme-color" content="#0b0b0b" />
-  <style>
-    :root{
-      --bg:#0b0b0b;
-      --card:#111111;
-      --text:#f6f6f6;
-      --muted:rgba(246,246,246,.68);
-      --border:rgba(246,246,246,.12);
-      --accent:#ffd400; /* żółty */
-      --radius:18px;
-      --shadow: 0 18px 55px rgba(0,0,0,.55);
-      --max: 1100px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      color:var(--text);
-      background:
-        radial-gradient(900px 520px at 15% 0%, rgba(255,212,0,.10), transparent 60%),
-        radial-gradient(700px 420px at 90% 20%, rgba(255,212,0,.08), transparent 58%),
-        var(--bg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
-      letter-spacing: .1px;
-    }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .hairline{height:1px; background:rgba(246,246,246,.08)}
-    .badge{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      border-radius:999px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .dot{
-      width:8px; height:8px; border-radius:50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(255,212,0,.10);
-      flex: 0 0 auto;
-    }
-
-    /* NAV */
-    .nav{
-      position: sticky; top:0; z-index:50;
-      background: rgba(11,11,11,.72);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(246,246,246,.08);
-    }
-    .nav-inner{
-      height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 160px;
-    }
-    .logo{
-      width:40px; height:40px;
-      border-radius:14px;
-      background: linear-gradient(135deg, var(--accent), #fff2a8);
-      color:#0b0b0b;
-      display:grid; place-items:center;
-      font-weight: 900;
-      box-shadow: 0 18px 40px rgba(255,212,0,.16);
-      user-select:none;
-    }
-    .brand b{letter-spacing:.9px}
-    .brand small{display:block; margin-top:2px; color: var(--muted); font-size: 12px; letter-spacing:.2px}
-
-    .links{
-      display:flex; align-items:center; gap: 14px;
-    }
-    .links a{
-      color: var(--muted);
-      font-size: 14px;
-      padding: 10px 10px;
-      border-radius: 12px;
-      transition: background .12s ease, color .12s ease, transform .12s ease;
-    }
-    .links a:hover{
-      background: rgba(255,255,255,.05);
-      color: var(--text);
-      transform: translateY(-1px);
-    }
-
-    .cta{
-      display:flex; gap:10px; align-items:center;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(246,246,246,.14);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      font-size: 14px;
-      user-select:none;
-      white-space: nowrap;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.07); border-color: rgba(246,246,246,.20)}
-    .btn.primary{
-      background: var(--accent);
-      border-color: rgba(255,212,0,.55);
-      color:#0b0b0b;
-      font-weight: 800;
-    }
-    .btn.primary:hover{background:#ffe24d}
-    .hamburger{
-      display:none;
-      width:44px; height:44px;
-      border-radius: 14px;
-      border: 1px solid rgba(246,246,246,.14);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      font-size: 18px;
-    }
-
-    /* HERO */
-    header{
-      padding: 56px 0 22px;
-    }
-    .hero{
-      border: 1px solid rgba(246,246,246,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: calc(var(--radius) + 8px);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position: relative;
-    }
-    .hero::before{
-      content:"";
-      position:absolute; inset:-140px auto auto -140px;
-      width: 340px; height: 340px;
-      background: radial-gradient(circle, rgba(255,212,0,.22), transparent 62%);
-      transform: rotate(-18deg);
-      pointer-events:none;
-    }
-    .hero-inner{
-      padding: 34px;
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    h1{
-      margin: 14px 0 10px;
-      font-size: clamp(30px, 3.6vw, 50px);
-      line-height: 1.03;
-      letter-spacing: -0.9px;
-    }
-    .lead{
-      margin:0;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 62ch;
-    }
-    .hero-actions{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top: 22px;
-      align-items:center;
-    }
-    .note{
-      margin-top: 16px;
-      color: rgba(246,246,246,.55);
-      font-size: 12px;
-    }
-
-    /* Right card */
-    .panel{
-      border: 1px solid rgba(246,246,246,.10);
-      background: rgba(0,0,0,.28);
-      border-radius: 18px;
-      padding: 18px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap: 14px;
-    }
-    .panel-top{
-      display:flex; flex-direction:column; gap: 10px;
-    }
-    .kpi{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .kpi .box{
-      border:1px solid rgba(246,246,246,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: 16px;
-      padding: 14px;
-    }
-    .box b{display:block; font-size: 18px}
-    .box span{display:block; margin-top:2px; color: var(--muted); font-size: 12px}
-
-    /* Sections */
-    section{padding: 22px 0}
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items: stretch;
-    }
-    .card{
-      border:1px solid rgba(246,246,246,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: 18px;
-      padding: 18px;
-    }
-    .card h2{
-      margin:0 0 10px;
-      font-size: 16px;
-      letter-spacing: -.2px;
-    }
-    .card p{
-      margin:0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    .list{
-      display:grid;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .item{
-      display:flex; gap: 10px; align-items:flex-start;
-      padding: 12px;
-      border-radius: 16px;
-      border:1px solid rgba(246,246,246,.10);
-      background: rgba(0,0,0,.22);
-    }
-    .tick{
-      width:24px; height:24px;
-      border-radius: 10px;
-      display:grid; place-items:center;
-      border:1px solid rgba(255,212,0,.35);
-      background: rgba(255,212,0,.14);
-      color: var(--accent);
-      font-weight: 900;
-      flex: 0 0 auto;
-      margin-top: 1px;
-    }
-    .item b{display:block; font-size: 14px}
-    .item span{display:block; color: var(--muted); font-size: 13px; margin-top: 2px}
-
-    /* Footer */
-    footer{
-      padding: 30px 0 42px;
-      border-top: 1px solid rgba(246,246,246,.08);
-      margin-top: 22px;
-      color: rgba(246,246,246,.60);
-      font-size: 12px;
-    }
-    .footer-inner{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    /* Drawer mobile */
-    .overlay{
-      position: fixed; inset:0;
-      background: rgba(0,0,0,.58);
-      opacity:0; pointer-events:none;
-      transition: opacity .16s ease;
-      z-index: 55;
-    }
-    .overlay.show{opacity:1; pointer-events:auto}
-    .drawer{
-      position: fixed;
-      inset: 0 0 0 auto;
-      width: min(420px, 88vw);
-      background: rgba(11,11,11,.96);
-      border-left: 1px solid rgba(246,246,246,.10);
-      transform: translateX(110%);
-      transition: transform .18s ease;
-      z-index: 60;
-      padding: 18px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      backdrop-filter: blur(12px);
-    }
-    .drawer.open{transform: translateX(0)}
-    .drawer a{
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(246,246,246,.10);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-      font-size: 14px;
-    }
-
-    /* Responsive */
-    @media (max-width: 920px){
-      .hero-inner{grid-template-columns: 1fr}
-      .grid{grid-template-columns: 1fr}
-      .links{display:none}
-      .hamburger{display:inline-grid; place-items:center}
-    }
-  </style>
+  <title>BARTMAL — Usługi remontowo-budowlane</title>
+  <meta name="description" content="BARTMAL — usługi remontowo-budowlane. Telefon: 666 291 280. Facebook: BartmalRemonty." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <!-- USTAWIENIA DO PODMIANY -->
-  <script>
-    // Podmień tylko te dwie wartości:
-    window.BARTMAL_PHONE = "+48 600 000 000";
-    window.BARTMAL_FB = "https://www.facebook.com/twojprofil"; // <- wstaw prawdziwy link
-  </script>
-
-  <nav class="nav" aria-label="Nawigacja">
-    <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="BARTMAL">
-        <div class="logo">B</div>
-        <div>
-          <b>BARTMAL</b>
-          <small>Remonty i wykończenia</small>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html" aria-label="BARTMAL">
+        <div class="mark">B</div>
+        <div class="brand-text">
+          <strong>BARTMAL</strong>
+          <span>Usługi remontowo-budowlane</span>
         </div>
       </a>
 
-      <div class="links">
-        <a href="#o-nas">O nas</a>
-        <a href="#zakres">Zakres</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
+      <nav class="nav" aria-label="Nawigacja">
+        <a class="active" href="index.html">Start</a>
+        <a href="uslugi.html">Usługi</a>
+        <a href="o-nas.html">O nas</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
 
-      <div class="cta">
-        <a class="btn" id="phoneTop" href="#">📞 Zadzwoń</a>
-        <a class="btn primary" id="fbTop" href="#" target="_blank" rel="noopener">Facebook</a>
-        <button class="hamburger" id="openDrawer" aria-label="Menu">☰</button>
+      <div class="actions">
+        <a class="btn primary" href="tel:+48666291280">Zadzwoń</a>
+        <button class="btn icon burger" id="open" aria-label="Menu">☰</button>
       </div>
     </div>
-  </nav>
+  </header>
 
   <div class="overlay" id="overlay" aria-hidden="true"></div>
   <aside class="drawer" id="drawer" aria-label="Menu mobilne">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-      <div class="brand" style="gap:10px;">
-        <div class="logo" style="width:36px;height:36px;">B</div>
-        <div>
-          <b>BARTMAL</b>
-          <small>Menu</small>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="mark" style="width:36px;height:36px;border-radius:14px;">B</div>
+        <div class="brand-text">
+          <strong>BARTMAL</strong>
+          <span>Menu</span>
         </div>
       </div>
-      <button class="btn" id="closeDrawer" aria-label="Zamknij">✕</button>
+      <button class="btn" id="close" aria-label="Zamknij">✕</button>
     </div>
-    <a href="#o-nas">O nas</a>
-    <a href="#zakres">Zakres</a>
-    <a href="#kontakt">Kontakt</a>
-    <div class="hairline" style="margin:6px 0;"></div>
-    <a id="phoneDrawer" href="#">📞 Zadzwoń</a>
-    <a id="fbDrawer" href="#" target="_blank" rel="noopener">Facebook</a>
+    <a href="index.html">Start</a>
+    <a href="uslugi.html">Usługi</a>
+    <a href="o-nas.html">O nas</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a class="btn primary" href="tel:+48666291280" style="justify-content:center;">Zadzwoń</a>
+    <a href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Facebook</a>
   </aside>
 
-  <main id="top">
-    <header>
-      <div class="container">
-        <div class="hero">
-          <div class="hero-inner">
-            <div>
-              <span class="badge"><span class="dot"></span> Premium minimalizm • czarny / biały / żółty</span>
-              <h1>Remonty i wykończenia<br/>bez chaosu.</h1>
-              <p class="lead">
-                BARTMAL to prosta, rzetelna ekipa od remontów i wykończeń.
-                Kontaktujesz się — ustalamy zakres — robimy robotę.
-              </p>
+  <main>
+    <div class="container">
+      <div class="panel glow" style="padding:34px;">
+        <div class="kicker"><span class="kdot"></span> Minimal • Premium • Konkret</div>
+        <h1>BARTMAL</h1>
+        <p class="lead">
+          Usługi remontowo-budowlane. Estetyka wykonania, porządek w pracy i jasny kontakt.
+          Bez nadęcia — ma być zrobione dobrze.
+        </p>
 
-              <div class="hero-actions">
-                <a class="btn primary" id="phoneHero" href="#">Zadzwoń</a>
-                <a class="btn" id="fbHero" href="#" target="_blank" rel="noopener">Facebook</a>
-              </div>
-
-              <div class="note">
-                Bez przesady, bez lania wody. Premium robią detale: spójność, typografia, odstępy.
-              </div>
-            </div>
-
-            <div class="panel" aria-label="Szybkie informacje">
-              <div class="panel-top">
-                <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
-                  <div style="font-weight:800; letter-spacing:.3px;">Kontakt</div>
-                  <span class="badge" style="padding:6px 10px; font-size:12px;">Odpowiadamy szybko</span>
-                </div>
-
-                <div class="kpi">
-                  <div class="box">
-                    <b>Telefon</b>
-                    <span id="phoneText">—</span>
-                  </div>
-                  <div class="box">
-                    <b>Facebook</b>
-                    <span>Profil firmy</span>
-                  </div>
-                </div>
-
-                <div class="card" style="padding:14px; margin:0; background: rgba(255,212,0,.06); border-color: rgba(255,212,0,.20);">
-                  <h2 style="margin:0 0 6px;">Zakres</h2>
-                  <p style="margin:0;">
-                    Wykończenia, odświeżenia, remonty mieszkań i domów.
-                  </p>
-                </div>
-              </div>
-
-              <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <a class="btn" id="phonePanel" href="#">📞 Zadzwoń</a>
-                <a class="btn primary" id="fbPanel" href="#" target="_blank" rel="noopener">Facebook</a>
-              </div>
-            </div>
-          </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+          <a class="btn primary" href="tel:+48666291280">666 291 280</a>
+          <a class="btn" href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn" href="uslugi.html">Zobacz usługi</a>
         </div>
-      </div>
-    </header>
 
-    <section id="o-nas">
-      <div class="container">
-        <div class="grid">
+        <div class="grid-3" style="margin-top:18px;">
           <div class="card">
-            <h2>O nas</h2>
-            <p>
-              Działamy konkretnie: ustalamy zakres, trzymamy porządek i dowozimy efekt.
-              Jeśli coś jest nieopłacalne albo bez sensu — mówimy wprost.
-            </p>
+            <h3>Zakres</h3>
+            <p>Od prac wykończeniowych po budowlane — zgodnie z ustaleniami i standardem.</p>
           </div>
           <div class="card">
-            <h2>Standard</h2>
-            <p>
-              Premium wygląd strony to jedno — premium usługa to komunikacja i przewidywalność.
-              Krótko: ma być dobrze i ma być jasno.
-            </p>
+            <h3>Styl pracy</h3>
+            <p>Równo, czysto, konsekwentnie. Premium robią detale, nie obietnice.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="zakres">
-      <div class="container">
-        <div class="grid">
           <div class="card">
-            <h2>Zakres prac</h2>
-            <p>Minimalnie, ale konkretnie:</p>
-            <div class="list">
-              <div class="item">
-                <div class="tick">✓</div>
-                <div>
-                  <b>Wykończenia</b>
-                  <span>gładzie, malowanie, podłogi, listwy</span>
-                </div>
-              </div>
-              <div class="item">
-                <div class="tick">✓</div>
-                <div>
-                  <b>Remonty</b>
-                  <span>odświeżenia i prace ogólnobudowlane</span>
-                </div>
-              </div>
-              <div class="item">
-                <div class="tick">✓</div>
-                <div>
-                  <b>Detale</b>
-                  <span>estetyka wykończenia i porządek na miejscu</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card" id="kontakt">
-            <h2>Kontakt</h2>
-            <p style="margin-bottom:12px;">
-              Najszybciej: telefon. Alternatywnie: Facebook.
-            </p>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="btn primary" id="phoneContact" href="#">📞 Zadzwoń</a>
-              <a class="btn" id="fbContact" href="#" target="_blank" rel="noopener">Facebook</a>
-            </div>
-            <p class="note" style="margin-top:14px;">
-              Pro tip: nie chowaj telefonu. Jak klient musi szukać, to idzie do konkurencji.
-            </p>
+            <h3>Kontakt</h3>
+            <p>Najszybciej: telefon. Aktualności i realizacje: Facebook.</p>
           </div>
         </div>
       </div>
-    </section>
 
-    <footer>
-      <div class="container footer-inner">
-        <div>
-          © <span id="year"></span> <b style="color:var(--text)">BARTMAL</b>
-          <div style="margin-top:6px;">Czarny • Biały • Żółty</div>
+      <footer>
+        <div class="footer-inner">
+          <div>
+            © <span id="year"></span> BARTMAL
+            <div style="margin-top:8px;">
+              <a href="tel:+48666291280" style="color:rgba(255,255,255,.82);">666 291 280</a>
+              <span style="opacity:.35;"> • </span>
+              <a href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82);">Facebook</a>
+            </div>
+          </div>
+          <div style="opacity:.7">Czerń / Biel / Żółty</div>
         </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn" href="#top">↑ Góra</a>
-          <a class="btn" href="#kontakt">Kontakt</a>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </main>
 
-  <script>
-    // Data
-    const phone = window.BARTMAL_PHONE || "+48 600 000 000";
-    const fb = window.BARTMAL_FB || "https://www.facebook.com/";
-
-    // Phone links + text
-    const telHref = "tel:" + phone.replace(/\s+/g,'').replace(/\(/g,'').replace(/\)/g,'');
-    const phoneIds = [
-      "phoneTop","phoneHero","phonePanel","phoneContact","phoneDrawer"
-    ].map(id => document.getElementById(id)).filter(Boolean);
-
-    phoneIds.forEach(a => a.setAttribute("href", telHref));
-    const phoneText = document.getElementById("phoneText");
-    if(phoneText) phoneText.textContent = phone;
-
-    // FB links
-    const fbIds = ["fbTop","fbHero","fbPanel","fbContact","fbDrawer"]
-      .map(id => document.getElementById(id)).filter(Boolean);
-    fbIds.forEach(a => a.setAttribute("href", fb));
-
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Drawer
-    const drawer = document.getElementById("drawer");
-    const overlay = document.getElementById("overlay");
-    const openBtn = document.getElementById("openDrawer");
-    const closeBtn = document.getElementById("closeDrawer");
-
-    function openDrawer(){
-      drawer.classList.add("open");
-      overlay.classList.add("show");
-      overlay.setAttribute("aria-hidden","false");
-    }
-    function closeDrawer(){
-      drawer.classList.remove("open");
-      overlay.classList.remove("show");
-      overlay.setAttribute("aria-hidden","true");
-    }
-    openBtn?.addEventListener("click", openDrawer);
-    closeBtn?.addEventListener("click", closeDrawer);
-    overlay?.addEventListener("click", closeDrawer);
-    document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeDrawer(); });
-    drawer.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", closeDrawer));
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
