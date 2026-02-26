@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BARTMAL — O nas</title>
-  <meta name="description" content="BARTMAL — usługi remontowo-budowlane." />
+  <meta name="description" content="BARTMAL — usługi remontowo-budowlane. Podejście do pracy i standard." />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -21,6 +21,7 @@
       <nav class="nav" aria-label="Nawigacja">
         <a href="/">Start</a>
         <a href="/uslugi">Usługi</a>
+        <a href="/galeria">Galeria</a>
         <a class="active" href="/o-nas">O nas</a>
         <a href="/kontakt">Kontakt</a>
       </nav>
@@ -44,8 +45,10 @@
       </div>
       <button class="btn" id="close" aria-label="Zamknij">✕</button>
     </div>
+
     <a href="/">Start</a>
     <a href="/uslugi">Usługi</a>
+    <a href="/galeria">Galeria</a>
     <a href="/o-nas">O nas</a>
     <a href="/kontakt">Kontakt</a>
     <a class="btn primary" href="tel:+48666291280" style="justify-content:center;">Zadzwoń</a>
@@ -54,33 +57,41 @@
 
   <main>
     <div class="container">
-      <div class="panel glow" style="padding:34px;">
-        <div class="kicker"><span class="kdot"></span> O nas</div>
-        <h1>BARTMAL</h1>
-        <p class="lead">
-          Zajmujemy się usługami remontowo-budowlanymi.
-          Stawiamy na równe wykończenie, porządek i spójny efekt.
-        </p>
-
-        <div class="grid-3" style="margin-top:18px;">
-          <div class="card">
-            <h3>Jakość</h3>
-            <p>Detale i czystość wykonania — to robi efekt „premium”.</p>
+      <div class="panel glow" style="padding:18px;">
+        <div class="gallery-head">
+          <div>
+            <h1 style="margin:0;">O nas</h1>
+            <p>Remonty i budowlanka bez chaosu. Liczy się efekt, porządek i termin.</p>
           </div>
-          <div class="card">
-            <h3>Ustalenia</h3>
-            <p>Zakres i termin mają być jasne — bez zgadywania.</p>
-          </div>
-          <div class="card">
-            <h3>Kontakt</h3>
-            <p>Telefon i Facebook — prosto i skutecznie.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" href="/galeria">Zobacz realizacje</a>
+            <a class="btn primary" href="tel:+48666291280">666 291 280</a>
           </div>
         </div>
 
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
-          <a class="btn primary" href="tel:+48666291280">666 291 280</a>
-          <a class="btn" href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Facebook</a>
-          <a class="btn" href="/uslugi">Usługi</a>
+        <div class="grid-3" style="margin-top:12px;">
+          <div class="card">
+            <h3>Standard</h3>
+            <p>Równe wykończenie, czysto na miejscu, zero “jakoś to będzie”.</p>
+          </div>
+          <div class="card">
+            <h3>Kontakt</h3>
+            <p>Ustalenia krótko i jasno. Najszybciej złapiesz nas przez telefon.</p>
+          </div>
+          <div class="card">
+            <h3>Realizacje</h3>
+            <p>Zdjęcia z efektów i z prac w trakcie są w galerii oraz na Facebooku.</p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:12px; padding:18px; background: rgba(0,0,0,.22);">
+          <div class="gallery-head">
+            <div>
+              <h2>Gdzie działamy</h2>
+              <p>Remonty mieszkań, domów i lokali. Zakres ustalamy po rozmowie.</p>
+            </div>
+            <a class="btn" href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Facebook</a>
+          </div>
         </div>
       </div>
 
