@@ -21,6 +21,7 @@
       <nav class="nav" aria-label="Nawigacja">
         <a class="active" href="/">Start</a>
         <a href="/uslugi">Usługi</a>
+        <a href="/galeria">Galeria</a>
         <a href="/o-nas">O nas</a>
         <a href="/kontakt">Kontakt</a>
       </nav>
@@ -47,6 +48,7 @@
 
     <a href="/">Start</a>
     <a href="/uslugi">Usługi</a>
+    <a href="/galeria">Galeria</a>
     <a href="/o-nas">O nas</a>
     <a href="/kontakt">Kontakt</a>
     <a class="btn primary" href="tel:+48666291280" style="justify-content:center;">Zadzwoń</a>
@@ -67,6 +69,7 @@
           <a class="btn primary" href="tel:+48666291280">666 291 280</a>
           <a class="btn" href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Facebook</a>
           <a class="btn" href="/uslugi">Zobacz usługi</a>
+          <a class="btn" href="/galeria">Zobacz galerię</a>
         </div>
 
         <div class="grid-3" style="margin-top:18px;">
@@ -85,58 +88,76 @@
         </div>
       </div>
 
-      <!-- GALERIA -->
+      <!-- TOP PRZED/PO -->
       <section class="gallery-wrap">
         <div class="panel" style="padding:18px;">
           <div class="gallery-head">
             <div>
-              <h2>Galeria prac</h2>
-              <p>Efekty końcowe oraz zdjęcia w trakcie prac. Kliknij zdjęcie, aby powiększyć.</p>
+              <h2>Wybrane przed / po</h2>
+              <p>Na głównej pokazujemy tylko najlepsze efekty. Pełna galeria jest osobno.</p>
             </div>
-
-            <div class="tabs" role="tablist" aria-label="Galeria">
-              <button class="tab active" data-filter="realizacje" role="tab">Realizacje</button>
-              <button class="tab" data-filter="wtrakcie" role="tab">W trakcie</button>
-            </div>
+            <a class="btn" href="/galeria">Pełna galeria</a>
           </div>
 
-          <div class="gallery-grid" id="galleryGrid">
-            <!-- REALIZACJE -->
-            <figure class="gitem gcol-6 grow-3" data-cat="realizacje" data-title="Realizacja — wykończenie">
-              <img src="/img/realizacja-1.jpg" alt="Realizacja BARTMAL 1" loading="lazy">
-              <figcaption class="gcap"><span>Realizacja</span><i>+</i></figcaption>
-            </figure>
+          <div class="ba-grid">
+            <!-- Para 1 -->
+            <article class="ba-card">
+              <div class="ba-media">
+                <button class="ba-img js-lightbox" data-src="/img/1.jpeg" data-title="Przed — realizacja 1" type="button">
+                  <img src="/img/1.jpeg" alt="Przed — realizacja 1" loading="lazy">
+                  <span class="ba-tag">PRZED</span>
+                </button>
+                <button class="ba-img js-lightbox" data-src="/img/2.jpeg" data-title="Po — realizacja 1" type="button">
+                  <img src="/img/2.jpeg" alt="Po — realizacja 1" loading="lazy">
+                  <span class="ba-tag">PO</span>
+                </button>
+              </div>
+              <div class="ba-caption">
+                <strong>Realizacja 1</strong>
+                <span>Podmień opis (krótko): np. gładzie + malowanie.</span>
+              </div>
+            </article>
 
-            <figure class="gitem gcol-3 grow-2" data-cat="realizacje" data-title="Realizacja — gładzie i malowanie">
-              <img src="/img/realizacja-2.jpg" alt="Realizacja BARTMAL 2" loading="lazy">
-              <figcaption class="gcap"><span>Realizacja</span><i>+</i></figcaption>
-            </figure>
+            <!-- Para 2 -->
+            <article class="ba-card">
+              <div class="ba-media">
+                <button class="ba-img js-lightbox" data-src="/img/3.jpeg" data-title="Przed — realizacja 2" type="button">
+                  <img src="/img/3.jpeg" alt="Przed — realizacja 2" loading="lazy">
+                  <span class="ba-tag">PRZED</span>
+                </button>
+                <button class="ba-img js-lightbox" data-src="/img/4.jpeg" data-title="Po — realizacja 2" type="button">
+                  <img src="/img/4.jpeg" alt="Po — realizacja 2" loading="lazy">
+                  <span class="ba-tag">PO</span>
+                </button>
+              </div>
+              <div class="ba-caption">
+                <strong>Realizacja 2</strong>
+                <span>Podmień opis: np. podłogi + listwy.</span>
+              </div>
+            </article>
 
-            <figure class="gitem gcol-3" data-cat="realizacje" data-title="Realizacja — podłogi">
-              <img src="/img/realizacja-3.jpg" alt="Realizacja BARTMAL 3" loading="lazy">
-              <figcaption class="gcap"><span>Realizacja</span><i>+</i></figcaption>
-            </figure>
-
-            <!-- W TRAKCIE -->
-            <figure class="gitem gcol-4 grow-2" data-cat="wtrakcie" data-title="W trakcie — przygotowanie">
-              <img src="/img/wtrakcie-1.jpg" alt="W trakcie prac BARTMAL 1" loading="lazy">
-              <figcaption class="gcap"><span>W trakcie</span><i>+</i></figcaption>
-            </figure>
-
-            <figure class="gitem gcol-4" data-cat="wtrakcie" data-title="W trakcie — regipsy">
-              <img src="/img/wtrakcie-2.jpg" alt="W trakcie prac BARTMAL 2" loading="lazy">
-              <figcaption class="gcap"><span>W trakcie</span><i>+</i></figcaption>
-            </figure>
-
-            <figure class="gitem gcol-4 grow-2" data-cat="wtrakcie" data-title="W trakcie — malowanie">
-              <img src="/img/wtrakcie-3.jpg" alt="W trakcie prac BARTMAL 3" loading="lazy">
-              <figcaption class="gcap"><span>W trakcie</span><i>+</i></figcaption>
-            </figure>
+            <!-- Para 3 -->
+            <article class="ba-card">
+              <div class="ba-media">
+                <button class="ba-img js-lightbox" data-src="/img/5.jpeg" data-title="Przed — realizacja 3" type="button">
+                  <img src="/img/5.jpeg" alt="Przed — realizacja 3" loading="lazy">
+                  <span class="ba-tag">PRZED</span>
+                </button>
+                <button class="ba-img js-lightbox" data-src="/img/6.jpeg" data-title="Po — realizacja 3" type="button">
+                  <img src="/img/6.jpeg" alt="Po — realizacja 3" loading="lazy">
+                  <span class="ba-tag">PO</span>
+                </button>
+              </div>
+              <div class="ba-caption">
+                <strong>Realizacja 3</strong>
+                <span>Podmień opis: np. regipsy / zabudowy.</span>
+              </div>
+            </article>
           </div>
 
           <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
             <div style="color: rgba(255,255,255,.55); font-size: 12px;">
-              Zdjęcia wrzuć do <b>/img</b> i podmień nazwy w kodzie, jeśli masz inne.
+              Jeśli nie masz prawdziwych par „przed/po” — nie udawaj. Pokaż „wybrane realizacje”.
             </div>
             <a class="btn" href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Więcej na Facebooku</a>
           </div>
