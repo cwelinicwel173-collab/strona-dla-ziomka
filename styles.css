@@ -167,7 +167,6 @@ h2{margin:0; font-size:18px; letter-spacing:-.2px}
   max-width: 70ch;
 }
 
-.grid-2{display:grid; grid-template-columns: 1.2fr .8fr; gap: 18px}
 .grid-3{display:grid; grid-template-columns: repeat(3,1fr); gap: 12px}
 .card{
   padding: 18px;
@@ -196,7 +195,6 @@ footer{
 /* Mobile nav */
 .burger{display:none}
 @media (max-width: 920px){
-  .grid-2{grid-template-columns:1fr}
   .grid-3{grid-template-columns:1fr}
   .nav{display:none}
   .burger{display:inline-flex}
@@ -279,6 +277,7 @@ footer{
   border-color: rgba(255,212,0,.35);
   color: var(--text);
 }
+
 .gallery-grid{
   display:grid;
   grid-template-columns: repeat(12, 1fr);
