@@ -1,8 +1,6 @@
-// Footer year
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Mobile drawer
 const overlay = document.getElementById("overlay");
 const drawer = document.getElementById("drawer");
 const openBtn = document.getElementById("open");
@@ -25,7 +23,6 @@ overlay?.addEventListener("click", closeDrawer);
 document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeDrawer(); });
 drawer?.querySelectorAll("a").forEach(a => a.addEventListener("click", closeDrawer));
 
-// Lightbox
 const lightbox = document.getElementById("lightbox");
 const lbImg = document.getElementById("lightboxImg");
 const lbTitle = document.getElementById("lightboxTitle");
@@ -50,7 +47,6 @@ lbClose?.addEventListener("click", closeLightbox);
 lightbox?.addEventListener("click", (e)=>{ if(e.target === lightbox) closeLightbox(); });
 document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeLightbox(); });
 
-// Bind lightbox to elements with .js-lightbox (index before/after)
 document.querySelectorAll(".js-lightbox").forEach(btn => {
   btn.addEventListener("click", () => {
     const src = btn.getAttribute("data-src");
@@ -60,18 +56,14 @@ document.querySelectorAll(".js-lightbox").forEach(btn => {
   });
 });
 
-// Gallery page generator + filter
 const grid = document.getElementById("galleryGrid");
 const tabs = document.querySelectorAll(".tab");
 
 function getCategory(n){
-  // USTAW SOBIE PODZIAŁ:
-  // 1–24 = realizacje, 25–62 = w trakcie
   return n <= 24 ? "realizacje" : "wtrakcie";
 }
 
 function tileClass(i){
-  // Prosty, powtarzalny układ “premium”
   const mod = i % 12;
   if (mod === 1) return "gitem gcol-6 grow-3";
   if (mod === 2) return "gitem gcol-3 grow-2";
@@ -137,7 +129,6 @@ function applyFilter(cat){
   });
 }
 
-// Init gallery if page has #galleryGrid
 buildGallery();
 applyFilter("realizacje");
 
