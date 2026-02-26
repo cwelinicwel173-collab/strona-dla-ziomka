@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/uslugi", "destination": "/uslugi.html" },
     { "source": "/o-nas", "destination": "/o-nas.html" },
-    { "source": "/kontakt", "destination": "/kontakt.html" }
+    { "source": "/kontakt", "destination": "/kontakt.html" },
+    { "source": "/galeria", "destination": "/galeria.html" }
   ]
 }
