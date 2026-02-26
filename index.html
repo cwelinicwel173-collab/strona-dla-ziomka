@@ -3,886 +3,561 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Remonty i Wykończenia | Solidnie. Terminowo. Bez ściemy.</title>
-  <meta name="description" content="Remonty mieszkań i domów, wykończenia pod klucz, łazienki, kuchnie, malowanie, gładzie, elektryka. Darmowa wycena." />
+  <title>BARTMAL — Remonty i wykończenia</title>
+  <meta name="description" content="BARTMAL — remonty i wykończenia. Kontakt: telefon i Facebook." />
+
   <style>
     :root{
-      --bg:#0b0b0b;
-      --card:#111;
+      --bg:#0b0b0c;
+      --panel:#101113;
       --text:#f7f7f7;
-      --muted:#cfcfcf;
+      --muted:rgba(255,255,255,.72);
+      --soft:rgba(255,255,255,.10);
       --accent:#ffd400; /* żółty */
-      --border: rgba(255,255,255,.12);
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --radius: 18px;
-      --max: 1120px;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 22px;
+      --max: 1100px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      background: radial-gradient(1200px 700px at 15% 0%, rgba(255,212,0,.10), transparent 55%),
-                  radial-gradient(900px 600px at 95% 20%, rgba(255,212,0,.08), transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(900px 520px at 18% 0%, rgba(255,212,0,.12), transparent 55%),
+        radial-gradient(820px 520px at 92% 16%, rgba(255,212,0,.08), transparent 55%),
+        var(--bg);
       color:var(--text);
-      line-height:1.5;
+      line-height:1.55;
+      letter-spacing: .2px;
+      overflow-x:hidden;
     }
+
     a{color:inherit; text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px; border:1px solid var(--border); border-radius:999px;
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-      font-size: 14px;
+    .container{max-width:var(--max); margin:0 auto; padding:0 22px}
+
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,11,12,.65);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow: 0 0 0 6px rgba(255,212,0,.10)}
+    .topbar-inner{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 180px;
+    }
+    .mark{
+      width:42px; height:42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), #fff1a6);
+      color:#111;
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      letter-spacing:-.6px;
+      box-shadow: 0 20px 45px rgba(255,212,0,.16);
+    }
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+    .brand-text strong{
+      font-size: 14px;
+      letter-spacing: 1.6px;
+    }
+    .brand-text span{
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .nav a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 10px 12px;
+      border-radius: 12px;
+      transition: background .15s ease, color .15s ease, transform .15s ease;
+    }
+    .nav a:hover{
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
     .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 16px; border-radius:12px;
-      border:1px solid var(--border);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 11px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.04);
       color: var(--text);
       cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
       user-select:none;
+      white-space:nowrap;
+      font-size: 13px;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18)}
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.20);
+    }
     .btn.primary{
       background: var(--accent);
       color:#121212;
       border-color: rgba(255,212,0,.55);
-      font-weight: 700;
+      font-weight: 750;
+      box-shadow: 0 18px 45px rgba(255,212,0,.12);
     }
-    .btn.primary:hover{background: #ffe24d}
-    .btn.ghost{
-      background: transparent;
-      border-color: rgba(255,255,255,.18);
-    }
-    .nav{
-      position: sticky; top:0; z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(11,11,11,.72);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .nav-inner{
-      height:72px;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand{display:flex; align-items:center; gap:12px}
-    .logo{
-      width:38px; height:38px; border-radius:12px;
-      background: linear-gradient(135deg, var(--accent), #fff2a8);
-      color:#111;
-      display:grid; place-items:center;
-      font-weight:900;
-      box-shadow: 0 14px 30px rgba(255,212,0,.14);
-    }
-    .brand-name{display:flex; flex-direction:column; line-height:1.1}
-    .brand-name strong{font-size:14px; letter-spacing:.6px}
-    .brand-name span{font-size:12px; color: var(--muted)}
-    .menu{
-      display:flex; align-items:center; gap:16px;
-    }
-    .menu a{
-      font-size:14px;
-      color: var(--muted);
-      padding:10px 10px;
-      border-radius: 10px;
-      transition: background .12s ease, color .12s ease;
-    }
-    .menu a:hover{background: rgba(255,255,255,.05); color: var(--text)}
-    .menu-cta{display:flex; gap:10px; align-items:center}
-    .hamburger{
-      display:none;
-      width:42px; height:42px;
-      border-radius: 12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
+    .btn.primary:hover{background:#ffe24d}
+    .btn.icon{
+      width:44px; height:44px;
+      padding:0;
+      border-radius: 14px;
     }
 
-    header.hero{
-      padding: 56px 0 28px;
-    }
-    .hero-grid{
+    /* Hero */
+    main{padding: 34px 0 46px}
+    .hero{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 26px;
-      align-items: stretch;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items:stretch;
+      margin-top: 18px;
     }
-    .hero-card{
-      border:1px solid rgba(255,255,255,.10);
+    .panel{
       background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
+      position: relative;
+    }
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset: -160px -160px auto auto;
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, rgba(255,212,0,.22), transparent 62%);
+      transform: rotate(16deg);
+      pointer-events:none;
     }
     .hero-left{
-      padding: 30px;
-      position: relative;
+      padding: 34px;
       min-height: 420px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap: 18px;
     }
-    .hero-left:before{
-      content:"";
-      position:absolute; inset:-120px -120px auto auto;
-      width: 320px; height: 320px;
-      background: radial-gradient(circle, rgba(255,212,0,.26), transparent 60%);
-      transform: rotate(18deg);
-      pointer-events:none;
-    }
-    h1{
-      margin: 14px 0 10px;
-      font-size: clamp(28px, 3.3vw, 44px);
-      line-height: 1.05;
-      letter-spacing: -.6px;
-    }
-    .sub{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 52ch;
-    }
-    .badges{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin: 16px 0 22px;
-    }
-    .hero-actions{
-      display:flex; flex-wrap:wrap; gap:12px;
-      margin-top: 10px;
+    .kicker{
+      display:inline-flex;
       align-items:center;
-    }
-    .hero-actions small{color: var(--muted)}
-    .hero-right{
-      display:flex; flex-direction:column;
-    }
-    .stats{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      padding: 16px;
-    }
-    .stat{
-      padding: 16px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.30);
-    }
-    .stat strong{display:block; font-size: 22px}
-    .stat span{color: var(--muted); font-size: 13px}
-    .photo{
-      margin: 0 16px 16px;
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.10);
-      overflow:hidden;
-      background:
-        linear-gradient(120deg, rgba(255,212,0,.18), transparent 50%),
-        radial-gradient(600px 260px at 20% 30%, rgba(255,255,255,.06), transparent 60%),
-        #0f0f0f;
-      min-height: 210px;
-      position: relative;
-    }
-    .photo::after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(to bottom, transparent 55%, rgba(0,0,0,.65));
-      pointer-events:none;
-    }
-    .photo-inner{
-      position:absolute; inset:0;
-      display:flex; flex-direction:column; justify-content:flex-end;
-      padding: 18px;
-      gap: 10px;
-    }
-    .photo-title{font-weight: 800; letter-spacing:.2px}
-    .photo-points{
-      display:flex; flex-wrap:wrap; gap:10px;
+      gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
       color: var(--muted);
       font-size: 13px;
+      width: fit-content;
     }
-    .photo-points .chip{
-      padding: 6px 10px;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius: 999px;
-      background: rgba(255,255,255,.03);
+    .kdot{
+      width:8px; height:8px;
+      border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 7px rgba(255,212,0,.10);
     }
 
-    section{
-      padding: 28px 0;
+    h1{
+      margin: 0;
+      font-size: clamp(30px, 3.2vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -0.9px;
     }
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap: 16px;
-      margin-bottom: 14px;
-    }
-    .section-head h2{
-      margin:0;
-      font-size: 22px;
-      letter-spacing: -.2px;
-    }
-    .section-head p{
-      margin:0;
+    .lead{
+      margin: 12px 0 0;
       color: var(--muted);
-      max-width: 70ch;
-      font-size: 14px;
+      font-size: 15.5px;
+      max-width: 58ch;
     }
 
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .card{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: 18px;
-      padding: 16px;
-      box-shadow: 0 10px 26px rgba(0,0,0,.18);
-    }
-    .card h3{margin: 0 0 6px; font-size: 16px}
-    .card p{margin:0; color: var(--muted); font-size: 14px}
-    .icon{
-      width:42px; height:42px;
-      display:grid; place-items:center;
-      border-radius: 14px;
-      background: rgba(255,212,0,.14);
-      border:1px solid rgba(255,212,0,.35);
-      color: var(--accent);
-      margin-bottom: 10px;
-      font-weight: 900;
-    }
-
-    .projects{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 12px;
-    }
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
+    .hero-bottom{
+      display:flex;
+      flex-wrap:wrap;
       gap: 10px;
+      align-items:center;
     }
-    .tile{
-      height: 140px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:
-        linear-gradient(120deg, rgba(255,212,0,.16), transparent 50%),
-        radial-gradient(400px 200px at 30% 20%, rgba(255,255,255,.08), transparent 60%),
-        #0f0f0f;
-      position: relative;
-      overflow:hidden;
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 6px;
+      color: rgba(255,255,255,.62);
+      font-size: 12.5px;
     }
-    .tile span{
-      position:absolute; left:12px; bottom:12px;
-      font-size: 12px;
-      color: rgba(255,255,255,.85);
-      padding: 6px 10px;
+    .meta span{
+      padding: 7px 10px;
       border-radius: 999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.35);
-      backdrop-filter: blur(6px);
-    }
-
-    .list{
-      display:flex; flex-direction:column; gap: 10px;
-    }
-    .list .row{
-      display:flex; gap: 12px; align-items:flex-start;
-      padding: 12px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.22);
     }
-    .tick{
-      width:24px; height:24px;
-      border-radius: 9px;
-      display:grid; place-items:center;
-      background: rgba(255,212,0,.18);
-      border:1px solid rgba(255,212,0,.35);
-      color: var(--accent);
-      font-weight: 900;
-      flex: 0 0 auto;
-      margin-top: 1px;
-    }
-    .row strong{display:block; font-size: 14px}
-    .row span{display:block; color: var(--muted); font-size: 13px; margin-top: 2px}
 
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
+    /* Right panel: minimal info card */
+    .hero-right{
+      display:flex;
+      flex-direction:column;
       gap: 12px;
-      align-items: stretch;
+      padding: 16px;
+    }
+    .info-card{
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.28);
+    }
+    .info-card h2{
+      margin:0 0 8px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .info-card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13.5px;
     }
 
-    form{
-      display:grid; gap: 10px;
+    .contact-box{
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,212,0,.22);
+      background: rgba(255,212,0,.05);
     }
-    .field{
-      display:grid; gap: 6px;
+    .contact-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    label{font-size: 13px; color: var(--muted)}
-    input, textarea, select{
-      width:100%;
-      padding: 12px 12px;
-      border-radius: 12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.03);
+    .contact-row:last-child{border-bottom:0}
+    .contact-row strong{
+      font-size: 13px;
+      letter-spacing: .4px;
+    }
+    .contact-row a{
       color: var(--text);
-      outline: none;
+      font-weight: 650;
     }
-    textarea{min-height: 110px; resize: vertical}
-    input:focus, textarea:focus, select:focus{
-      border-color: rgba(255,212,0,.55);
-      box-shadow: 0 0 0 4px rgba(255,212,0,.10);
+    .contact-row a:hover{ text-decoration: underline; text-underline-offset: 4px; }
+
+    /* Section */
+    section{
+      margin-top: 18px;
+      padding: 12px 0;
     }
-    .fineprint{
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .mini{
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .mini h3{
+      margin:0 0 6px;
+      font-size: 14px;
+    }
+    .mini p{
+      margin:0;
       color: var(--muted);
-      font-size: 12px;
-      margin: 6px 0 0;
+      font-size: 13.5px;
     }
 
+    /* Footer */
     footer{
-      padding: 30px 0 40px;
+      margin-top: 26px;
+      padding: 26px 0 38px;
       border-top: 1px solid rgba(255,255,255,.08);
-      margin-top: 20px;
-      color: var(--muted);
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 12px;
-      align-items:start;
-    }
-    .footer-grid a{color: var(--text)}
-    .mini{
+      color: rgba(255,255,255,.58);
       font-size: 12px;
-      color: rgba(255,255,255,.55);
-      margin-top: 10px;
+    }
+    .footer-inner{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 16px;
+      flex-wrap:wrap;
     }
 
     /* Mobile */
+    .burger{display:none}
     @media (max-width: 920px){
-      .hero-grid{grid-template-columns: 1fr; }
-      .projects{grid-template-columns: 1fr}
-      .grid-3{grid-template-columns: 1fr}
-      .gallery{grid-template-columns: 1fr 1fr}
-      .split{grid-template-columns: 1fr}
-      .menu{display:none}
-      .hamburger{display:inline-grid; place-items:center}
-    }
-    @media (max-width: 520px){
-      .gallery{grid-template-columns: 1fr}
-      .stats{grid-template-columns: 1fr}
-      .hero-left{min-height: auto}
+      .hero{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr}
+      .nav{display:none}
+      .burger{display:inline-flex}
+      .brand{min-width: unset}
     }
 
-    /* Mobile menu drawer */
+    /* Simple mobile drawer */
+    .overlay{
+      position: fixed; inset:0;
+      background: rgba(0,0,0,.56);
+      opacity:0; pointer-events:none;
+      transition: opacity .18s ease;
+      z-index: 60;
+    }
+    .overlay.show{opacity:1; pointer-events:auto}
+
     .drawer{
       position: fixed;
-      inset: 0 0 0 auto;
+      top:0; right:0; bottom:0;
       width: min(420px, 88vw);
-      background: rgba(11,11,11,.95);
+      background: rgba(11,11,12,.96);
       border-left: 1px solid rgba(255,255,255,.10);
       transform: translateX(110%);
       transition: transform .18s ease;
-      z-index: 60;
+      z-index: 65;
       padding: 18px;
+      backdrop-filter: blur(12px);
       display:flex;
       flex-direction:column;
       gap: 10px;
-      backdrop-filter: blur(12px);
     }
     .drawer.open{transform: translateX(0)}
     .drawer a{
       padding: 12px 12px;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
       color: var(--text);
+      font-size: 13px;
     }
-    .overlay{
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,.55);
-      opacity: 0;
-      pointer-events:none;
-      transition: opacity .18s ease;
-      z-index: 55;
-    }
-    .overlay.show{opacity:1; pointer-events:auto}
   </style>
 </head>
 
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Strona główna">
-        <div class="logo">R</div>
-        <div class="brand-name">
-          <strong>REMONT PRO</strong>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top" aria-label="BARTMAL">
+        <div class="mark">B</div>
+        <div class="brand-text">
+          <strong>BARTMAL</strong>
           <span>Remonty i wykończenia</span>
         </div>
       </a>
 
-      <div class="menu" aria-label="Nawigacja">
-        <a href="#uslugi">Usługi</a>
-        <a href="#realizacje">Realizacje</a>
-        <a href="#proces">Proces</a>
-        <a href="#opinie">Opinie</a>
+      <nav class="nav" aria-label="Nawigacja">
+        <a href="#o-nas">O nas</a>
+        <a href="#zakres">Zakres</a>
         <a href="#kontakt">Kontakt</a>
-      </div>
+      </nav>
 
-      <div class="menu-cta">
-        <a class="btn ghost" href="tel:+48123123123" aria-label="Zadzwoń">📞 +48 123 123 123</a>
-        <button class="hamburger" id="openDrawer" aria-label="Otwórz menu">☰</button>
+      <div class="actions">
+        <!-- Podmień numer telefonu -->
+        <a class="btn primary" href="tel:+48123123123" aria-label="Zadzwoń">Zadzwoń</a>
+        <button class="btn icon burger" id="open" aria-label="Menu">☰</button>
       </div>
     </div>
-  </nav>
+  </header>
 
   <div class="overlay" id="overlay" aria-hidden="true"></div>
   <aside class="drawer" id="drawer" aria-label="Menu mobilne">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-      <div class="brand" style="gap:10px;">
-        <div class="logo" style="width:34px;height:34px;border-radius:12px;">R</div>
-        <div class="brand-name">
-          <strong>REMONT PRO</strong>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="mark" style="width:36px;height:36px;border-radius:14px;">B</div>
+        <div class="brand-text">
+          <strong>BARTMAL</strong>
           <span>Menu</span>
         </div>
       </div>
-      <button class="btn" id="closeDrawer" aria-label="Zamknij menu">✕</button>
+      <button class="btn" id="close" aria-label="Zamknij">✕</button>
     </div>
-    <a href="#uslugi">Usługi</a>
-    <a href="#realizacje">Realizacje</a>
-    <a href="#proces">Proces</a>
-    <a href="#opinie">Opinie</a>
+    <a href="#o-nas">O nas</a>
+    <a href="#zakres">Zakres</a>
     <a href="#kontakt">Kontakt</a>
-    <a class="btn primary" href="#kontakt" style="margin-top:6px;">Darmowa wycena →</a>
-    <a class="btn" href="tel:+48123123123">Zadzwoń: +48 123 123 123</a>
+    <a class="btn primary" href="tel:+48123123123" style="justify-content:center;">Zadzwoń</a>
+    <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
   </aside>
 
   <main id="top">
-    <header class="hero">
-      <div class="container hero-grid">
-        <div class="hero-card hero-left">
-          <span class="pill"><span class="dot"></span> Terminy, porządek, jasna wycena. Bez bajek.</span>
-          <h1>Remonty i wykończenia, które nie kończą się dramatem.</h1>
-          <p class="sub">
-            Robimy mieszkania i domy od A do Z: łazienki, kuchnie, gładzie, malowanie, podłogi, zabudowy.
-            Dostajesz plan, kosztorys i termin — a potem dowozimy.
-          </p>
-
-          <div class="badges">
-            <span class="pill">✅ Umowa + harmonogram</span>
-            <span class="pill">✅ Zdjęcia postępów</span>
-            <span class="pill">✅ Gwarancja</span>
-            <span class="pill">✅ Wycena w 24–48h</span>
-          </div>
-
-          <div class="hero-actions">
-            <a class="btn primary" href="#kontakt">Poproś o wycenę</a>
-            <a class="btn" href="#realizacje">Zobacz realizacje</a>
-            <small>Średni czas odpowiedzi: <b>tego samego dnia</b></small>
-          </div>
-
-          <p class="fineprint">*Wstaw swój obszar działania, np. Warszawa + 50 km. To ważniejsze niż myślisz.</p>
-        </div>
-
-        <div class="hero-card hero-right">
-          <div class="stats">
-            <div class="stat">
-              <strong>150+</strong>
-              <span>ukończonych remontów</span>
-            </div>
-            <div class="stat">
-              <strong>4.9/5</strong>
-              <span>średnia ocen klientów</span>
-            </div>
-            <div class="stat">
-              <strong>7–21 dni</strong>
-              <span>typowe realizacje</span>
-            </div>
-            <div class="stat">
-              <strong>0</strong>
-              <span>ukrytych kosztów</span>
-            </div>
-          </div>
-
-          <div class="photo" role="img" aria-label="Zastępcza grafika realizacji">
-            <div class="photo-inner">
-              <div class="photo-title">Wykończenie „pod klucz”</div>
-              <div class="photo-points">
-                <span class="chip">Łazienki</span>
-                <span class="chip">Kuchnie</span>
-                <span class="chip">Mieszkania</span>
-                <span class="chip">Domy</span>
-              </div>
-            </div>
-          </div>
-
-          <div style="padding: 0 16px 16px;">
-            <div class="card" style="background: rgba(255,212,0,.06); border-color: rgba(255,212,0,.22);">
-              <h3 style="margin:0 0 6px;">Szybka wycena</h3>
-              <p style="margin:0;color:var(--muted);">
-                Wyślij metraż + zakres + 2–3 zdjęcia. Dostaniesz widełki i dostępne terminy.
-              </p>
-              <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
-                <a class="btn primary" href="#kontakt">Wyślij zapytanie</a>
-                <a class="btn" href="mailto:wyceny@remontpro.pl">E-mail</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <section id="uslugi">
-      <div class="container">
-        <div class="section-head">
+    <div class="container">
+      <div class="hero">
+        <div class="panel hero-left">
           <div>
-            <h2>Usługi</h2>
-            <p>To jest oferta, która sprzedaje. Nie „wszystko robimy”, tylko konkretne pakiety.</p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <div class="icon">🛁</div>
-            <h3>Łazienki</h3>
-            <p>Hydroizolacja, płytki, biały montaż, zabudowy, przeróbki instalacji.</p>
-          </div>
-          <div class="card">
-            <div class="icon">🏠</div>
-            <h3>Wykończenia pod klucz</h3>
-            <p>Gładzie, malowanie, podłogi, drzwi, listwy, zabudowy GK, detale.</p>
-          </div>
-          <div class="card">
-            <div class="icon">🧰</div>
-            <h3>Remonty generalne</h3>
-            <p>Demontaże, elektryka, hydraulika, ściany, układ funkcjonalny, odbiory.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="realizacje">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Realizacje</h2>
-            <p>Tu normalnie wrzucasz zdjęcia „przed/po”. Bez tego ludzie Ci nie uwierzą.</p>
-          </div>
-          <a class="btn" href="#kontakt">Chcę podobny efekt →</a>
-        </div>
-
-        <div class="projects">
-          <div class="hero-card" style="padding:16px;">
-            <div class="gallery" aria-label="Galeria realizacji">
-              <div class="tile"><span>Mieszkanie 52 m²</span></div>
-              <div class="tile"><span>Łazienka 5 m²</span></div>
-              <div class="tile"><span>Kuchnia + salon</span></div>
-              <div class="tile"><span>Dom – parter</span></div>
-              <div class="tile"><span>Sypialnia</span></div>
-              <div class="tile"><span>Przedpokój</span></div>
+            <div class="kicker"><span class="kdot"></span> Premium wykonanie • minimalny design • zero hałasu</div>
+            <h1>BARTMAL</h1>
+            <p class="lead">
+              Remonty i wykończenia w estetyce, która ma sens: czysto, równo, konsekwentnie.
+              Strona jest celowo minimalistyczna — informacja i kontakt bez lania wody.
+            </p>
+            <div class="meta">
+              <span>Remonty mieszkań</span>
+              <span>Łazienki</span>
+              <span>Gładzie i malowanie</span>
+              <span>Wykończenia</span>
             </div>
-            <p class="fineprint" style="margin:12px 0 0;">
-              Wskazówka: podpisz zdjęcia metrażem, zakresem i czasem realizacji. To buduje zaufanie.
+          </div>
+
+          <div class="hero-bottom">
+            <!-- Podmień numer -->
+            <a class="btn primary" href="tel:+48123123123">+48 123 123 123</a>
+            <!-- Podmień link FB -->
+            <a class="btn" href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+
+        <div class="panel hero-right">
+          <div class="info-card">
+            <h2>O firmie</h2>
+            <p>
+              Wstaw 1–2 zdania prawdy: ile lat na rynku, jaki standard, na czym Ci zależy.
+              Premium robi „konkret + spokój”, nie krzyk.
             </p>
           </div>
 
-          <div class="hero-card" style="padding:16px;">
-            <div class="list">
-              <div class="row">
-                <div class="tick">✓</div>
-                <div>
-                  <strong>Wycena i zakres</strong>
-                  <span>Widełki + lista prac + materiały + terminy.</span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="tick">✓</div>
-                <div>
-                  <strong>Umowa i harmonogram</strong>
-                  <span>Kamienie milowe, płatności etapami, bez chaosu.</span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="tick">✓</div>
-                <div>
-                  <strong>Realizacja</strong>
-                  <span>Porządek, zabezpieczenia, raporty zdjęciowe.</span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="tick">✓</div>
-                <div>
-                  <strong>Odbiór + gwarancja</strong>
-                  <span>Lista usterek, poprawki, dokumentacja.</span>
-                </div>
-              </div>
+          <div class="info-card">
+            <h2>Obszar</h2>
+            <p>Podmień na swoje: np. Warszawa i okolice / Radom / Łódź.</p>
+          </div>
+
+          <div class="contact-box" id="kontakt">
+            <div class="contact-row">
+              <strong>Telefon</strong>
+              <a href="tel:+48123123123" aria-label="Numer telefonu">+48 123 123 123</a>
             </div>
-            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="btn primary" href="#kontakt">Zacznijmy</a>
-              <a class="btn" href="tel:+48123123123">Zadzwoń</a>
+            <div class="contact-row">
+              <strong>Facebook</strong>
+              <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook BARTMAL">Otwórz profil</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="proces">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Proces (4 kroki)</h2>
-            <p>Klient kupuje spokój. Proces ma być prosty, przewidywalny i „bez niespodzianek”.</p>
+      <section id="o-nas">
+        <div class="grid">
+          <div class="mini">
+            <h3>Standard</h3>
+            <p>Precyzja, porządek i przewidywalność. Bez improwizacji.</p>
+          </div>
+          <div class="mini">
+            <h3>Komunikacja</h3>
+            <p>Krótko i konkretnie: co, kiedy, za ile. Bez mgły.</p>
+          </div>
+          <div class="mini">
+            <h3>Detale</h3>
+            <p>To detale robią „premium”. Równe krawędzie, czyste wykończenia.</p>
           </div>
         </div>
+      </section>
 
-        <div class="grid-3">
-          <div class="card">
-            <div class="icon">1</div>
-            <h3>Kontakt</h3>
-            <p>Metraż, lokalizacja, zakres, termin. Dodatkowo 2–3 zdjęcia.</p>
-          </div>
-          <div class="card">
-            <div class="icon">2</div>
-            <h3>Wycena</h3>
-            <p>Widełki + plan prac. Jeśli pasuje — robimy wizję i kosztorys.</p>
-          </div>
-          <div class="card">
-            <div class="icon">3</div>
-            <h3>Realizacja</h3>
-            <p>Etapy + raporty. Płacisz za wykonane, nie za obietnice.</p>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:12px;">
-          <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+      <section id="zakres">
+        <div class="panel" style="padding:18px;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;">
             <div>
-              <h3 style="margin:0 0 4px;">Masz remont „na wczoraj”?</h3>
-              <p style="margin:0;color:var(--muted);">Napisz, co jest krytyczne. Powiemy wprost, czy da się to zrobić rozsądnie.</p>
-            </div>
-            <a class="btn primary" href="#kontakt">Sprawdź terminy</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="opinie">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Opinie</h2>
-            <p>Nie wklejaj „super firma polecam”. Daj konkret: zakres, metraż, termin, efekt.</p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>„Łazienka zrobiona bez poprawek”</h3>
-            <p>Termin dotrzymany, porządek na budowie, wszystko jak w kosztorysie. — <b>Anna</b></p>
-          </div>
-          <div class="card">
-            <h3>„Pod klucz w 18 dni”</h3>
-            <p>Codzienne zdjęcia postępów, dobra komunikacja. — <b>Michał</b></p>
-          </div>
-          <div class="card">
-            <h3>„Uratowali po poprzedniej ekipie”</h3>
-            <p>Wyprostowali instalacje, zrobili detale. — <b>Kasia</b></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="kontakt">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Kontakt i wycena</h2>
-            <p>Jeśli nie zbierasz leadów porządnie, to potem płaczesz, że „nie ma klientów”. Tu ma być prosto.</p>
-          </div>
-        </div>
-
-        <div class="split">
-          <div class="hero-card" style="padding:16px;">
-            <h3 style="margin:0 0 8px;">Wyślij zapytanie</h3>
-            <form id="leadForm">
-              <div class="field">
-                <label for="name">Imię</label>
-                <input id="name" name="name" placeholder="np. Jan" required />
-              </div>
-              <div class="field">
-                <label for="phone">Telefon</label>
-                <input id="phone" name="phone" placeholder="np. 600 000 000" inputmode="tel" required />
-              </div>
-              <div class="field">
-                <label for="service">Zakres</label>
-                <select id="service" name="service" required>
-                  <option value="" selected disabled>Wybierz</option>
-                  <option>Łazienka</option>
-                  <option>Wykończenie pod klucz</option>
-                  <option>Remont generalny</option>
-                  <option>Inne</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="details">Opis (metraż, lokalizacja, termin)</label>
-                <textarea id="details" name="details" placeholder="Np. 52 m², Warszawa, start w marcu, gładzie + malowanie + podłogi."></textarea>
-              </div>
-
-              <button class="btn primary" type="submit">Wyślij</button>
-              <p class="fineprint">
-                Kliknięcie „Wyślij” pokaże gotową wiadomość do skopiowania (bez backendu).
-                Jeśli chcesz prawdziwe wysyłanie na maila — dodajemy formularz (np. Formspree / własny backend).
-              </p>
-            </form>
-          </div>
-
-          <div class="hero-card" style="padding:16px;">
-            <h3 style="margin:0 0 8px;">Dane</h3>
-            <div class="list">
-              <div class="row">
-                <div class="tick">☎</div>
-                <div>
-                  <strong>Telefon</strong>
-                  <span><a href="tel:+48123123123">+48 123 123 123</a></span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="tick">✉</div>
-                <div>
-                  <strong>E-mail</strong>
-                  <span><a href="mailto:kontakt@remontpro.pl">kontakt@remontpro.pl</a></span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="tick">📍</div>
-                <div>
-                  <strong>Obszar</strong>
-                  <span>Warszawa + 50 km (podmień na swoje)</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="card" style="margin-top:12px;">
-              <h3 style="margin:0 0 6px;">Co wysłać, żeby dostać wycenę szybko?</h3>
-              <p style="margin:0;color:var(--muted); font-size: 14px;">
-                Metraż, adres/miasto, zakres prac, standard (basic/premium), termin startu i 2–3 zdjęcia.
+              <h2 style="margin:0;font-size:18px;letter-spacing:-.2px;">Zakres prac</h2>
+              <p style="margin:6px 0 0;color:var(--muted);font-size:13.5px;max-width:70ch;">
+                Zostawiamy to minimalistycznie, ale konkretnie. Bez listy 40 pozycji.
               </p>
             </div>
+            <a class="btn primary" href="tel:+48123123123">Kontakt</a>
+          </div>
 
-            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="btn primary" href="tel:+48123123123">Zadzwoń teraz</a>
-              <a class="btn" href="#top">Wróć na górę</a>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px;">
+            <div class="mini" style="background:rgba(0,0,0,.22);">
+              <h3>Wykończenia</h3>
+              <p>Gładzie, malowanie, podłogi, listwy, drzwi.</p>
+            </div>
+            <div class="mini" style="background:rgba(0,0,0,.22);">
+              <h3>Łazienki</h3>
+              <p>Płytki, hydroizolacja, biały montaż, zabudowy.</p>
             </div>
           </div>
-        </div>
 
-        <div class="card" id="result" style="display:none; margin-top:12px;"></div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="container footer-grid">
-        <div>
-          <div class="brand" style="gap:10px;">
-            <div class="logo" style="width:34px;height:34px;">R</div>
-            <div class="brand-name">
-              <strong>REMONT PRO</strong>
-              <span>Remonty i wykończenia</span>
-            </div>
-          </div>
-          <p class="mini">
-            © <span id="year"></span> Remont Pro. Kolory: czarny / biały / żółty. <br/>
-            Uwaga: podmień nazwę, numer telefonu, e-mail, obszar i dodaj realne zdjęcia realizacji.
+          <p style="margin:12px 0 0;color:rgba(255,255,255,.55);font-size:12px;">
+            Jeśli nie chcesz podawać zakresu na stronie — też ok. Minimalizm ma sens, o ile kontakt jest oczywisty.
           </p>
         </div>
-        <div>
-          <div class="mini" style="margin:0 0 8px;">Skróty</div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn" href="#uslugi">Usługi</a>
-            <a class="btn" href="#realizacje">Realizacje</a>
-            <a class="btn" href="#kontakt">Kontakt</a>
+      </section>
+
+      <footer>
+        <div class="footer-inner">
+          <div>
+            © <span id="year"></span> BARTMAL
+            <div style="margin-top:8px;">
+              <a href="tel:+48123123123" style="color:rgba(255,255,255,.82);">+48 123 123 123</a>
+              <span style="opacity:.35;"> • </span>
+              <a href="https://facebook.com/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82);">Facebook</a>
+            </div>
+          </div>
+          <div style="opacity:.7">
+            Minimal • Premium • Czerń / Biel / Żółty
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </main>
 
   <script>
-    // Rok w stopce
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile drawer
-    const drawer = document.getElementById("drawer");
     const overlay = document.getElementById("overlay");
-    const openBtn = document.getElementById("openDrawer");
-    const closeBtn = document.getElementById("closeDrawer");
+    const drawer = document.getElementById("drawer");
+    const openBtn = document.getElementById("open");
+    const closeBtn = document.getElementById("close");
 
     function openDrawer(){
       drawer.classList.add("open");
       overlay.classList.add("show");
-      overlay.setAttribute("aria-hidden", "false");
+      overlay.setAttribute("aria-hidden","false");
     }
     function closeDrawer(){
       drawer.classList.remove("open");
       overlay.classList.remove("show");
-      overlay.setAttribute("aria-hidden", "true");
+      overlay.setAttribute("aria-hidden","true");
     }
+
     openBtn?.addEventListener("click", openDrawer);
     closeBtn?.addEventListener("click", closeDrawer);
     overlay?.addEventListener("click", closeDrawer);
     document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeDrawer(); });
 
-    // Close drawer on navigation click
+    // Close drawer after clicking a link
     drawer.querySelectorAll("a").forEach(a => a.addEventListener("click", closeDrawer));
-
-    // Fake form submit (no backend): generates message
-    const form = document.getElementById("leadForm");
-    const result = document.getElementById("result");
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const name = (data.get("name") || "").toString().trim();
-      const phone = (data.get("phone") || "").toString().trim();
-      const service = (data.get("service") || "").toString().trim();
-      const details = (data.get("details") || "").toString().trim();
-
-      const msg =
-`Nowe zapytanie o remont:
-Imię: ${name}
-Telefon: ${phone}
-Zakres: ${service}
-Opis: ${details || "(brak)"}\n
-Prośba: wycena + dostępne terminy.`;
-
-      result.style.display = "block";
-      result.innerHTML = `
-        <h3 style="margin:0 0 8px;">Gotowe — skopiuj wiadomość</h3>
-        <p style="margin:0 0 10px;color:var(--muted);">Wersja bez backendu. Jeśli chcesz, podepniemy prawdziwe wysyłanie na maila.</p>
-        <textarea style="width:100%; min-height:170px;">${msg.replaceAll("<","&lt;").replaceAll(">","&gt;")}</textarea>
-        <div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;">
-          <button class="btn primary" type="button" id="copyBtn">Kopiuj</button>
-          <a class="btn" href="mailto:kontakt@remontpro.pl?subject=Zapytanie%20o%20remont&body=${encodeURIComponent(msg)}">Otwórz e-mail</a>
-        </div>
-      `;
-      document.getElementById("copyBtn").addEventListener("click", async () => {
-        const ta = result.querySelector("textarea");
-        ta.select();
-        try{
-          await navigator.clipboard.writeText(ta.value);
-          alert("Skopiowano!");
-        }catch{
-          document.execCommand("copy");
-          alert("Skopiowano (tryb awaryjny).");
-        }
-      });
-
-      result.scrollIntoView({behavior:"smooth", block:"start"});
-      form.reset();
-    });
   </script>
 </body>
 </html>
