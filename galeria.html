@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BARTMAL — Galeria</title>
+  <meta name="description" content="BARTMAL — galeria realizacji i zdjęć w trakcie prac." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/" aria-label="BARTMAL">
+        <div class="mark">B</div>
+        <div class="brand-text">
+          <strong>BARTMAL</strong>
+          <span>Usługi remontowo-budowlane</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Nawigacja">
+        <a href="/">Start</a>
+        <a href="/uslugi">Usługi</a>
+        <a class="active" href="/galeria">Galeria</a>
+        <a href="/o-nas">O nas</a>
+        <a href="/kontakt">Kontakt</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn primary" href="tel:+48666291280">Zadzwoń</a>
+        <button class="btn icon burger" id="open" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="Menu mobilne">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="mark" style="width:36px;height:36px;border-radius:14px;">B</div>
+        <div class="brand-text">
+          <strong>BARTMAL</strong>
+          <span>Menu</span>
+        </div>
+      </div>
+      <button class="btn" id="close" aria-label="Zamknij">✕</button>
+    </div>
+
+    <a href="/">Start</a>
+    <a href="/uslugi">Usługi</a>
+    <a href="/galeria">Galeria</a>
+    <a href="/o-nas">O nas</a>
+    <a href="/kontakt">Kontakt</a>
+    <a class="btn primary" href="tel:+48666291280" style="justify-content:center;">Zadzwoń</a>
+    <a href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Facebook</a>
+  </aside>
+
+  <main>
+    <div class="container">
+      <div class="panel glow" style="padding:18px;">
+        <div class="gallery-head">
+          <div>
+            <h1 style="margin:0;">Galeria</h1>
+            <p>Kliknij zdjęcie, aby powiększyć. Podział: realizacje oraz zdjęcia w trakcie prac.</p>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Galeria">
+            <button class="tab active" data-filter="realizacje" type="button">Realizacje</button>
+            <button class="tab" data-filter="wtrakcie" type="button">W trakcie</button>
+            <button class="tab" data-filter="wszystkie" type="button">Wszystkie</button>
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid"></div>
+
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+          <div style="color: rgba(255,255,255,.55); font-size: 12px;">
+            Pro tip: usuń słabe zdjęcia. Mniej, ale lepiej = drożej wygląda.
+          </div>
+          <a class="btn" href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Więcej na Facebooku</a>
+        </div>
+      </div>
+
+      <!-- LIGHTBOX -->
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox-inner" role="dialog" aria-modal="true">
+          <div class="lightbox-top">
+            <strong id="lightboxTitle">Podgląd</strong>
+            <button type="button" id="lightboxClose" aria-label="Zamknij">✕</button>
+          </div>
+          <div class="lightbox-media">
+            <img id="lightboxImg" src="" alt="">
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-inner">
+          <div>
+            © <span id="year"></span> BARTMAL
+            <div style="margin-top:8px;">
+              <a href="tel:+48666291280" style="color:rgba(255,255,255,.82);">666 291 280</a>
+              <span style="opacity:.35;"> • </span>
+              <a href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82);">Facebook</a>
+            </div>
+          </div>
+          <div style="opacity:.7">Galeria</div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
