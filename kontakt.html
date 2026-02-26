@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BARTMAL — Kontakt</title>
-  <meta name="description" content="Kontakt BARTMAL: 666 291 280 oraz Facebook." />
+  <meta name="description" content="BARTMAL — kontakt. Telefon: 666 291 280. Facebook: BartmalRemonty." />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -21,6 +21,7 @@
       <nav class="nav" aria-label="Nawigacja">
         <a href="/">Start</a>
         <a href="/uslugi">Usługi</a>
+        <a href="/galeria">Galeria</a>
         <a href="/o-nas">O nas</a>
         <a class="active" href="/kontakt">Kontakt</a>
       </nav>
@@ -44,8 +45,10 @@
       </div>
       <button class="btn" id="close" aria-label="Zamknij">✕</button>
     </div>
+
     <a href="/">Start</a>
     <a href="/uslugi">Usługi</a>
+    <a href="/galeria">Galeria</a>
     <a href="/o-nas">O nas</a>
     <a href="/kontakt">Kontakt</a>
     <a class="btn primary" href="tel:+48666291280" style="justify-content:center;">Zadzwoń</a>
@@ -54,27 +57,33 @@
 
   <main>
     <div class="container">
-      <div class="panel glow" style="padding:34px;">
-        <div class="kicker"><span class="kdot"></span> Kontakt</div>
-        <h1>Skontaktuj się z BARTMAL</h1>
-        <p class="lead">Telefon i Facebook — prosto, bez formularzy.</p>
-
-        <div class="grid-2" style="margin-top:18px;">
-          <div class="contact-box">
-            <div class="contact-row">
-              <strong>Telefon</strong>
-              <a href="tel:+48666291280">666 291 280</a>
-            </div>
-            <div class="contact-row">
-              <strong>Facebook</strong>
-              <a href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">BartmalRemonty</a>
-            </div>
+      <div class="panel glow" style="padding:18px;">
+        <div class="gallery-head">
+          <div>
+            <h1 style="margin:0;">Kontakt</h1>
+            <p>Najprościej i najszybciej: telefon. Realizacje: Facebook i galeria.</p>
           </div>
+          <a class="btn" href="/galeria">Galeria</a>
+        </div>
 
+        <div class="grid-3" style="margin-top:12px;">
           <div class="card">
-            <h3>Co podać w wiadomości?</h3>
-            <p>Zakres prac, lokalizacja, metraż (jeśli dotyczy) i preferowany termin.</p>
+            <h3>Telefon</h3>
+            <p><a href="tel:+48666291280" style="color:rgba(255,255,255,.86); font-weight:800;">666 291 280</a></p>
           </div>
+          <div class="card">
+            <h3>Facebook</h3>
+            <p><a href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener" style="color:rgba(255,255,255,.86); font-weight:800;">BartmalRemonty</a></p>
+          </div>
+          <div class="card">
+            <h3>Usługi</h3>
+            <p><a href="/uslugi" style="color:rgba(255,255,255,.86); font-weight:800;">Zobacz zakres prac</a></p>
+          </div>
+        </div>
+
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="tel:+48666291280">Zadzwoń teraz</a>
+          <a class="btn" href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Napisz na Facebooku</a>
         </div>
       </div>
 
