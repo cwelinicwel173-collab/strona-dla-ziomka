@@ -1,6 +1,7 @@
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// Drawer
 const overlay = document.getElementById("overlay");
 const drawer = document.getElementById("drawer");
 const openBtn = document.getElementById("open");
@@ -23,6 +24,7 @@ overlay?.addEventListener("click", closeDrawer);
 document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeDrawer(); });
 drawer?.querySelectorAll("a").forEach(a => a.addEventListener("click", closeDrawer));
 
+// Lightbox
 const lightbox = document.getElementById("lightbox");
 const lbImg = document.getElementById("lightboxImg");
 const lbTitle = document.getElementById("lightboxTitle");
@@ -47,6 +49,7 @@ lbClose?.addEventListener("click", closeLightbox);
 lightbox?.addEventListener("click", (e)=>{ if(e.target === lightbox) closeLightbox(); });
 document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeLightbox(); });
 
+// Bind lightbox buttons (home before/after)
 document.querySelectorAll(".js-lightbox").forEach(btn => {
   btn.addEventListener("click", () => {
     const src = btn.getAttribute("data-src");
@@ -56,6 +59,7 @@ document.querySelectorAll(".js-lightbox").forEach(btn => {
   });
 });
 
+// Gallery generator
 const grid = document.getElementById("galleryGrid");
 const tabs = document.querySelectorAll(".tab");
 
