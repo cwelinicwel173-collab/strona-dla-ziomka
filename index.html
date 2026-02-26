@@ -44,6 +44,7 @@
       </div>
       <button class="btn" id="close" aria-label="Zamknij">✕</button>
     </div>
+
     <a href="/">Start</a>
     <a href="/uslugi">Usługi</a>
     <a href="/o-nas">O nas</a>
@@ -80,6 +81,77 @@
           <div class="card">
             <h3>Kontakt</h3>
             <p>Najszybciej: telefon. Aktualności i realizacje: Facebook.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GALERIA -->
+      <section class="gallery-wrap">
+        <div class="panel" style="padding:18px;">
+          <div class="gallery-head">
+            <div>
+              <h2>Galeria prac</h2>
+              <p>Efekty końcowe oraz zdjęcia w trakcie prac. Kliknij zdjęcie, aby powiększyć.</p>
+            </div>
+
+            <div class="tabs" role="tablist" aria-label="Galeria">
+              <button class="tab active" data-filter="realizacje" role="tab">Realizacje</button>
+              <button class="tab" data-filter="wtrakcie" role="tab">W trakcie</button>
+            </div>
+          </div>
+
+          <div class="gallery-grid" id="galleryGrid">
+            <!-- REALIZACJE -->
+            <figure class="gitem gcol-6 grow-3" data-cat="realizacje" data-title="Realizacja — wykończenie">
+              <img src="/img/realizacja-1.jpg" alt="Realizacja BARTMAL 1" loading="lazy">
+              <figcaption class="gcap"><span>Realizacja</span><i>+</i></figcaption>
+            </figure>
+
+            <figure class="gitem gcol-3 grow-2" data-cat="realizacje" data-title="Realizacja — gładzie i malowanie">
+              <img src="/img/realizacja-2.jpg" alt="Realizacja BARTMAL 2" loading="lazy">
+              <figcaption class="gcap"><span>Realizacja</span><i>+</i></figcaption>
+            </figure>
+
+            <figure class="gitem gcol-3" data-cat="realizacje" data-title="Realizacja — podłogi">
+              <img src="/img/realizacja-3.jpg" alt="Realizacja BARTMAL 3" loading="lazy">
+              <figcaption class="gcap"><span>Realizacja</span><i>+</i></figcaption>
+            </figure>
+
+            <!-- W TRAKCIE -->
+            <figure class="gitem gcol-4 grow-2" data-cat="wtrakcie" data-title="W trakcie — przygotowanie">
+              <img src="/img/wtrakcie-1.jpg" alt="W trakcie prac BARTMAL 1" loading="lazy">
+              <figcaption class="gcap"><span>W trakcie</span><i>+</i></figcaption>
+            </figure>
+
+            <figure class="gitem gcol-4" data-cat="wtrakcie" data-title="W trakcie — regipsy">
+              <img src="/img/wtrakcie-2.jpg" alt="W trakcie prac BARTMAL 2" loading="lazy">
+              <figcaption class="gcap"><span>W trakcie</span><i>+</i></figcaption>
+            </figure>
+
+            <figure class="gitem gcol-4 grow-2" data-cat="wtrakcie" data-title="W trakcie — malowanie">
+              <img src="/img/wtrakcie-3.jpg" alt="W trakcie prac BARTMAL 3" loading="lazy">
+              <figcaption class="gcap"><span>W trakcie</span><i>+</i></figcaption>
+            </figure>
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+            <div style="color: rgba(255,255,255,.55); font-size: 12px;">
+              Zdjęcia wrzuć do <b>/img</b> i podmień nazwy w kodzie, jeśli masz inne.
+            </div>
+            <a class="btn" href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Więcej na Facebooku</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIGHTBOX -->
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox-inner" role="dialog" aria-modal="true">
+          <div class="lightbox-top">
+            <strong id="lightboxTitle">Podgląd</strong>
+            <button type="button" id="lightboxClose" aria-label="Zamknij">✕</button>
+          </div>
+          <div class="lightbox-media">
+            <img id="lightboxImg" src="" alt="">
           </div>
         </div>
       </div>
