@@ -607,6 +607,11 @@ footer{
   flex-wrap:wrap;
 }
 
+/* >>> FIX: usuwa prawy dolny napis w stopce (drugi bloczek) */
+.footer-inner > :nth-child(2){
+  display:none !important;
+}
+
 /* Drawer (mobile) */
 .burger{ display:none; }
 @media (max-width: 920px){
