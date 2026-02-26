@@ -1,1 +1,105 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BARTMAL — O nas</title>
+  <meta name="description" content="BARTMAL — usługi remontowo-budowlane. Informacje o firmie." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html" aria-label="BARTMAL">
+        <div class="mark">B</div>
+        <div class="brand-text">
+          <strong>BARTMAL</strong>
+          <span>Usługi remontowo-budowlane</span>
+        </div>
+      </a>
 
+      <nav class="nav" aria-label="Nawigacja">
+        <a href="index.html">Start</a>
+        <a href="uslugi.html">Usługi</a>
+        <a class="active" href="o-nas.html">O nas</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn primary" href="tel:+48666291280">Zadzwoń</a>
+        <button class="btn icon burger" id="open" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="Menu mobilne">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="mark" style="width:36px;height:36px;border-radius:14px;">B</div>
+        <div class="brand-text">
+          <strong>BARTMAL</strong>
+          <span>Menu</span>
+        </div>
+      </div>
+      <button class="btn" id="close" aria-label="Zamknij">✕</button>
+    </div>
+    <a href="index.html">Start</a>
+    <a href="uslugi.html">Usługi</a>
+    <a href="o-nas.html">O nas</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a class="btn primary" href="tel:+48666291280" style="justify-content:center;">Zadzwoń</a>
+    <a href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Facebook</a>
+  </aside>
+
+  <main>
+    <div class="container">
+      <div class="panel glow" style="padding:34px;">
+        <div class="kicker"><span class="kdot"></span> O nas</div>
+        <h1>BARTMAL</h1>
+        <p class="lead">
+          Krótko i konkretnie: zajmujemy się usługami remontowo-budowlanymi.
+          Stawiamy na równe wykończenie, porządek i spójny efekt.
+        </p>
+
+        <div class="grid-3" style="margin-top:18px;">
+          <div class="card">
+            <h3>Jakość</h3>
+            <p>Premium w praktyce: detale, krawędzie, czystość wykonania.</p>
+          </div>
+          <div class="card">
+            <h3>Ustalenia</h3>
+            <p>Zakres i termin mają być jasne — bez zgadywania.</p>
+          </div>
+          <div class="card">
+            <h3>Kontakt</h3>
+            <p>Telefon i Facebook — prosto, bez formularzy.</p>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+          <a class="btn primary" href="tel:+48666291280">666 291 280</a>
+          <a class="btn" href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn" href="uslugi.html">Usługi</a>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-inner">
+          <div>
+            © <span id="year"></span> BARTMAL
+            <div style="margin-top:8px;">
+              <a href="tel:+48666291280" style="color:rgba(255,255,255,.82);">666 291 280</a>
+              <span style="opacity:.35;"> • </span>
+              <a href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82);">Facebook</a>
+            </div>
+          </div>
+          <div style="opacity:.7">O nas</div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
