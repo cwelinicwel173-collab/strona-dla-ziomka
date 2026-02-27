@@ -666,3 +666,8 @@ footer{
     scroll-behavior: auto !important;
   }
 }
+
+/* USUNIĘCIE KWADRATU LOGO */
+.mark{
+  display:none !important;
+}
