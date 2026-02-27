@@ -1,1 +1,197 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BARTMAL — Usługi remontowo-budowlane</title>
+  <meta name="description" content="BARTMAL — usługi remontowo-budowlane. Telefon: 666 291 280. Facebook: BartmalRemonty." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/" aria-label="BARTMAL">
+        <div class="brand-text">
+          <strong>BARTMAL</strong>
+          <span>Usługi remontowo-budowlane</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Nawigacja">
+        <a class="active" href="/">Start</a>
+        <a href="/uslugi">Usługi</a>
+        <a href="/galeria">Galeria</a>
+        <a href="/o-nas">O nas</a>
+        <a href="/kontakt">Kontakt</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn primary" href="tel:+48666291280">Zadzwoń</a>
+        <button class="btn icon burger" id="open" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="Menu mobilne">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+      <div class="brand-text">
+        <strong>BARTMAL</strong>
+        <span>Menu</span>
+      </div>
+      <button class="btn" id="close" aria-label="Zamknij">✕</button>
+    </div>
+
+    <a href="/">Start</a>
+    <a href="/uslugi">Usługi</a>
+    <a href="/galeria">Galeria</a>
+    <a href="/o-nas">O nas</a>
+    <a href="/kontakt">Kontakt</a>
+    <a class="btn primary" href="tel:+48666291280" style="justify-content:center;">Zadzwoń</a>
+    <a href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Facebook</a>
+  </aside>
+
+  <main>
+    <div class="container">
+      <section class="panel glow hero">
+        <div class="hero-top">
+          <div>
+            <div class="kicker"><span class="kdot"></span> Minimal • Premium • Konkret</div>
+            <h1 style="margin-top:14px;">BARTMAL</h1>
+            <p class="lead">
+              Usługi remontowo-budowlane. Estetyka wykonania, porządek w pracy i jasny kontakt.
+              Bez nadęcia — ma być zrobione dobrze.
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="tel:+48666291280">666 291 280</a>
+            <a class="btn" href="/galeria">Galeria</a>
+            <a class="btn" href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+
+        <div class="hero-tiles grid-3">
+          <div class="card">
+            <h3>Zakres</h3>
+            <p>Od prac wykończeniowych po budowlane — zgodnie z ustaleniami i standardem.</p>
+          </div>
+          <div class="card">
+            <h3>Styl pracy</h3>
+            <p>Równo, czysto, konsekwentnie. Premium robią detale, nie obietnice.</p>
+          </div>
+          <div class="card">
+            <h3>Kontakt</h3>
+            <p>Najszybciej: telefon. Aktualności i realizacje: Facebook i galeria.</p>
+          </div>
+        </div>
+
+        <div class="cta-strip">
+          <div>
+            <strong>Masz temat do zrobienia?</strong>
+            <span>Zadzwoń i ustalimy zakres oraz termin.</span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="tel:+48666291280">Zadzwoń</a>
+            <a class="btn" href="/uslugi">Zakres usług</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel" style="padding:18px;">
+          <div class="section-title">
+            <div>
+              <h2>Wybrane przed / po</h2>
+              <p>Najlepsze efekty z wybranych realizacji.</p>
+            </div>
+            <a class="btn" href="/galeria">Pełna galeria</a>
+          </div>
+
+          <div class="ba-grid">
+            <article class="ba-card">
+              <div class="ba-media">
+                <button class="ba-img js-lightbox" data-src="/img/1.jpeg" data-title="Przed — realizacja 1" type="button">
+                  <img src="/img/1.jpeg" alt="Przed — realizacja 1" loading="lazy">
+                  <span class="ba-tag">PRZED</span>
+                </button>
+                <button class="ba-img js-lightbox" data-src="/img/2.jpeg" data-title="Po — realizacja 1" type="button">
+                  <img src="/img/2.jpeg" alt="Po — realizacja 1" loading="lazy">
+                  <span class="ba-tag">PO</span>
+                </button>
+              </div>
+              <div class="ba-caption">
+                <strong>Realizacja 1</strong>
+                <span>Wykończenie</span>
+              </div>
+            </article>
+
+            <article class="ba-card">
+              <div class="ba-media">
+                <button class="ba-img js-lightbox" data-src="/img/3.jpeg" data-title="Przed — realizacja 2" type="button">
+                  <img src="/img/3.jpeg" alt="Przed — realizacja 2" loading="lazy">
+                  <span class="ba-tag">PRZED</span>
+                </button>
+                <button class="ba-img js-lightbox" data-src="/img/4.jpeg" data-title="Po — realizacja 2" type="button">
+                  <img src="/img/4.jpeg" alt="Po — realizacja 2" loading="lazy">
+                  <span class="ba-tag">PO</span>
+                </button>
+              </div>
+              <div class="ba-caption">
+                <strong>Realizacja 2</strong>
+                <span>Remont</span>
+              </div>
+            </article>
+
+            <article class="ba-card">
+              <div class="ba-media">
+                <button class="ba-img js-lightbox" data-src="/img/5.jpeg" data-title="Przed — realizacja 3" type="button">
+                  <img src="/img/5.jpeg" alt="Przed — realizacja 3" loading="lazy">
+                  <span class="ba-tag">PRZED</span>
+                </button>
+                <button class="ba-img js-lightbox" data-src="/img/6.jpeg" data-title="Po — realizacja 3" type="button">
+                  <img src="/img/6.jpeg" alt="Po — realizacja 3" loading="lazy">
+                  <span class="ba-tag">PO</span>
+                </button>
+              </div>
+              <div class="ba-caption">
+                <strong>Realizacja 3</strong>
+                <span>Wykończenie</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox-inner" role="dialog" aria-modal="true">
+          <div class="lightbox-top">
+            <strong id="lightboxTitle">Podgląd</strong>
+            <button type="button" id="lightboxClose" aria-label="Zamknij">✕</button>
+          </div>
+          <div class="lightbox-media">
+            <img id="lightboxImg" src="" alt="">
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-inner">
+          <div>
+            © <span id="year"></span> BARTMAL
+            <div style="margin-top:8px;">
+              <a href="tel:+48666291280" style="color:rgba(255,255,255,.82);">666 291 280</a>
+              <span style="opacity:.35;"> • </span>
+              <a href="https://www.facebook.com/BartmalRemonty" target="_blank" rel="noopener" style="color:rgba(255,255,255,.82);">Facebook</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
+
 
