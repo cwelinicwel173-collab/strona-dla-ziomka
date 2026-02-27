@@ -667,3 +667,9 @@ footer{
   }
 }
 
+/* =========================================================
+   FIX: usuń kwadrat "B" obok nazwy (globalnie, wszędzie)
+   ========================================================= */
+.mark{
+  display:none !important;
+}
